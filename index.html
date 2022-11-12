@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prodavnica</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid  d-flex justify-content-center">
+          <a class="navbar-brand" href="#">Prodavnica</a>
+        </div>
+    </nav>
+    <div class="container-fluid  d-flex justify-content-center">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="pocetna-tab" data-bs-toggle="tab" data-bs-target="#pocetna-tab-pane" type="button" role="tab" aria-controls="pocetna-tab-pane" aria-selected="true">Pocetna</button>
+            </li>
+            <li class="nav-item" role="presentation">
+            <button class="nav-link" id="sokovi-tab" data-bs-toggle="tab" data-bs-target="#sokovi-tab-pane" type="button" role="tab" aria-controls="sokovi-tab-pane" aria-selected="false">Sokovi</button>
+            </li>
+            <li class="nav-item" role="presentation">
+            <button class="nav-link" id="ambalaza-tab" data-bs-toggle="tab" data-bs-target="#ambalaza-tab-pane" type="button" role="tab" aria-controls="ambalaza-tab-pane" aria-selected="false">Ambalaza</button>
+            </li>
+        </ul>
+    </div>
+    <div class="tab-content container-md" id="myTabContent">
+       <!--pocetna-->
+        <div class="tab-pane fade show active" id="pocetna-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+            
+            <h1 class="text-center">ovo je pocetna strana</h1>
+
+        </div>
+        <!--sokovi-->
+        <div class="tab-pane fade "  id="sokovi-tab-pane" role="tabpanel" aria-labelledby="sokovi-tab" tabindex="0">
+            <div class="d-flex flex-column justify-content-center">
+                <h1 class="text-center">Sokovi</h1>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dodajSok">
+                    Dodaj novi sok
+                </button>
+                
+                <table class="table table-hover sortable" id="tabelaAkcija">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Naziv</th>
+                        <th scope="col">Opis</th>
+                        <th scope="col">Ambalaza ID</th>
+                        <th scope="col">Izmeni</th>
+                        <th scope="col">Obrisi</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="1">
+                            <td>1</td>
+                            <td>Coca Cola</td>
+                            <td>pice</td>
+                            <td>2</td>
+                            <td><button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#izmeniSok" >
+                                    Izmeni 
+                                </button>
+                            </td>
+                            <td><button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#obrisiSok">
+                                    Obriši 
+                                </button> 
+                            </td>
+                        </tr> 
+                        <tr id="2">
+                            <td>2</td>
+                            <td>Sprite</td>
+                            <td>pice</td>
+                            <td>2</td>
+                            <td><button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#izmeniSok" >
+                                    Izmeni 
+                                </button>
+                            </td>
+                            <td><button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#obrisiSok">
+                                    Obriši 
+                                </button> 
+                            </td>
+                        </tr>
+                        <tr id="3">
+                            <td>3</td>
+                            <td>Sprite</td>
+                            <td>pice</td>
+                            <td>2</td>
+                            <td><button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#izmeniSok" >
+                                    Izmeni 
+                                </button>
+                            </td>
+                            <td><button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#obrisiSok">
+                                    Obriši 
+                                </button> 
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+        
+                <div class="modal fade" id="dodajSok" tabindex="-1" aria-labelledby="dodajLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"">
+                    <div class="modal-content">
+                        <form  action="#" method="post" id="dodajSokForm">
+                        <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="dodajLabel">Dodaj nov sok</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="naziv" class="form-label">Naziv</label>
+                            <input type="text" class="form-control" name="Naziv" id="naziv" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="procenat_popusta" class="form-label">Procenat popusta</label>
+                            <input type="number" class="form-control" name="ProcenatPopusta" id="procenat_popusta" required>
+                        </div>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Otkaži</button>
+                        <button  id="btnDodaj"  type="submit" class="btn btn-primary">Dodaj</button>
+                        </div>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="izmeniSok" tabindex="-1" aria-labelledby="izmeniLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"">
+                    <div class="modal-content">
+                    <form action="#" method="post" id="izmeniSokForm">
+                        <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="izmeniLabel">Izmeni sok</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body izmeniovde">
+                        <div class="row">
+                            <div class="mb-3">
+                                <label for="naziv" class="form-label">Id</label>
+                                <input type="text" class="form-control bg-light" name="Id" id="id" readonly >
+                            </div>
+                            <div class="mb-3">
+                                <label for="naziv" class="form-label">Naziv</label>
+                                <input type="text" class="form-control" name="Naziv" id="naziv" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="procenat_popusta" class="form-label">Procenat popusta</label>
+                                <input type="number" class="form-control" name="ProcenatPopusta" id="procenat_popusta" required>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Otkaži</button>
+                        <button id="btnIzmeni" type="submit" class="btn btn-success btn-block btn-warning"> Izmeni
+                        </button>
+                        </div>
+                    </form>
+                    </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="obrisiSok" tabindex="-1" aria-labelledby="obrisiLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"">
+                    <div class="modal-content">
+                    <form action="#" method="post" id="obrisiSokForm"> 
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="obrisiLabel">Obriši akciju</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body obrisiovde">
+                        <div class="row">
+                            <div class="mb-3">
+                                <label for="naziv" class="form-label">Id</label>
+                                <input type="text" class="form-control bg-light" name="Id" id="id" readonly >
+                            </div>
+                            <div class="mb-3">
+                                <label for="naziv" class="form-label">Naziv</label>
+                                <input type="text" class="form-control bg-light" name="Naziv" id="naziv" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label for="procenat_popusta" class="form-label">Procenat popusta</label>
+                                <input type="number" class="form-control bg-light" name="ProcenatPopusta" id="procenat_popusta" readonly>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Otkaži</button>
+                        <button id="btnObrisi" type="submit" class="btn btn-success btn-block btn-danger" >Obriši
+                        </button>
+                        </div>
+                    </form>
+                    </div>
+                    </div>
+              </div>
+            </div>
+        </div>
+        <!--ambalaza-->
+        <div class="tab-pane fade "  id="ambalaza-tab-pane" role="tabpanel" aria-labelledby="ambalaza-tab" tabindex="0">
+           <div class="d-flex flex-column justify-content-center">
+            <h1 class="text-center">Ambalaze</h1>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dodajAmbalazu">
+                Dodaj novu ambalazu
+            </button>
+            
+            <table class="table table-hover sortable" id="tabelaAmbalaza">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Naziv</th>
+                    <th scope="col">Opis</th>
+                    <th scope="col">Ambalaza ID</th>
+                    <th scope="col">Izmeni</th>
+                    <th scope="col">Obrisi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr id="1">
+                        <td>1</td>
+                        <td>Coca Cola</td>
+                        <td>pice</td>
+                        <td>2</td>
+                        <td><button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#izmeniAmbalazu" >
+                                Izmeni 
+                            </button>
+                        </td>
+                        <td><button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#obrisiAmbalazu">
+                                Obriši 
+                            </button> 
+                        </td>
+                    </tr> 
+                    <tr id="2">
+                        <td>2</td>
+                        <td>Sprite</td>
+                        <td>pice</td>
+                        <td>2</td>
+                        <td><button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#izmeniAmbalazu" >
+                                Izmeni 
+                            </button>
+                        </td>
+                        <td><button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#obrisiAmbalazu">
+                                Obriši 
+                            </button> 
+                        </td>
+                    </tr>
+                    <tr id="3">
+                        <td>3</td>
+                        <td>Sprite</td>
+                        <td>pice</td>
+                        <td>2</td>
+                        <td><button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#izmeniAmbalazu" >
+                                Izmeni 
+                            </button>
+                        </td>
+                        <td><button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#obrisiAmbalazu">
+                                Obriši 
+                            </button> 
+                        </td>
+                    </tr>
+                </tbody>
+              </table>
+      
+              <div class="modal fade" id="dodajAmbalazu" tabindex="-1" aria-labelledby="dodajLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"">
+                  <div class="modal-content">
+                    <form  action="#" method="post" id="dodajAmbalazuForm">
+                      <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="dodajLabel">Dodaj nov sok</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="mb-3">
+                          <label for="naziv" class="form-label">Naziv</label>
+                          <input type="text" class="form-control" name="Naziv" id="naziv" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="procenat_popusta" class="form-label">Procenat popusta</label>
+                          <input type="number" class="form-control" name="ProcenatPopusta" id="procenat_popusta" required>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Otkaži</button>
+                      <button  id="btnDodaj"  type="submit" class="btn btn-primary">Dodaj</button>
+                    </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="modal fade" id="izmeniAmbalazu" tabindex="-1" aria-labelledby="izmeniLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"">
+                  <div class="modal-content">
+                  <form action="#" method="post" id="izmeniSokForm">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="izmeniLabel">Izmeni sok</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body izmeniovde">
+                      <div class="row">
+                          <div class="mb-3">
+                              <label for="naziv" class="form-label">Id</label>
+                              <input type="text" class="form-control bg-light" name="Id" id="id" readonly >
+                          </div>
+                          <div class="mb-3">
+                              <label for="naziv" class="form-label">Naziv</label>
+                              <input type="text" class="form-control" name="Naziv" id="naziv" required>
+                          </div>
+                          <div class="mb-3">
+                              <label for="procenat_popusta" class="form-label">Procenat popusta</label>
+                              <input type="number" class="form-control" name="ProcenatPopusta" id="procenat_popusta" required>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Otkaži</button>
+                      <button id="btnIzmeni" type="submit" class="btn btn-success btn-block btn-warning"> Izmeni
+                      </button>
+                    </div>
+                  </form>
+                  </div>
+                </div>
+              </div>
+              <div class="modal fade" id="obrisiAmbalazu" tabindex="-1" aria-labelledby="obrisiLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"">
+                  <div class="modal-content">
+                  <form action="#" method="post" id="obrisiSokForm"> 
+                  <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="obrisiLabel">Obriši akciju</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body obrisiovde">
+                      <div class="row">
+                          <div class="mb-3">
+                              <label for="naziv" class="form-label">Id</label>
+                              <input type="text" class="form-control bg-light" name="Id" id="id" readonly >
+                          </div>
+                          <div class="mb-3">
+                              <label for="naziv" class="form-label">Naziv</label>
+                              <input type="text" class="form-control bg-light" name="Naziv" id="naziv" readonly>
+                          </div>
+                          <div class="mb-3">
+                              <label for="procenat_popusta" class="form-label">Procenat popusta</label>
+                              <input type="number" class="form-control bg-light" name="ProcenatPopusta" id="procenat_popusta" readonly>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Otkaži</button>
+                      <button id="btnObrisi" type="submit" class="btn btn-success btn-block btn-danger" >Obriši
+                      </button>
+                    </div>
+                  </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/main.js"></script>
+</html>
